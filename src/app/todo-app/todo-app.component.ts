@@ -13,12 +13,13 @@ export class TodoAppComponent implements OnInit {
   
   _taskList: Task[];
 
-  constructor(private taskService : TaskServiceService){ }
+  constructor(private taskService : TaskServiceService){ } // service class'ımız enjekte ediliyor..
 
   ngOnInit() {
-    this.taskService.findAll().subscribe(data => {this._taskList = data});
+    this.taskService.findAll().subscribe(data => {this._taskList = data}); // onInit içerisinde _taskList dizisi dolduruluyor
   }
 
+  // gerisi zaten bildiğimiz şeyler..
   addTask(todo: Task){
     if (this._task.taskName != "" && this.isNotThereAnyItemLikeWantsToAddOnItemList(todo)) {
       this._taskList.push({ 'completed': this._task.completed, 'taskName': this._task.taskName});

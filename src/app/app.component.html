@@ -1,16 +1,12 @@
-<br>
-
 <div class="container">
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-        <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="navbar-nav">
-                <a class="nav-item nav-link" routerLink="" style="font-size: 20px">Home</a>
-                <a class="nav-item nav-link" routerLink="about" style="font-size: 20px">About</a>
-            </div>
+    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link" routerLink="">Home</a> <!-- routerLink, router ile componentler arasında geçiş yapmak için kullanılır -->
+            <a class="nav-item nav-link" routerLink="about">About</a>
         </div>
     </nav>
 </div>
 
 <br>
 
-<router-outlet></router-outlet>
+<router-outlet></router-outlet> <!-- router ile doldurulacağı belirtilmiş, componentler ve URL yönlendirmeleri app-routing.module.ts class'ında -->

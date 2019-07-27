@@ -7,10 +7,7 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  title: string;
-
   constructor() { 
-    this.title = 'To Do Application';
   }
 
   ngOnInit() {

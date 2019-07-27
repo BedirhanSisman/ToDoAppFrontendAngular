@@ -1,6 +1,11 @@
 <div class="container">
-    <h1>To Do Application</h1>
+    <div class="text-center">
+        <h2>To Do Application</h2>
+        <br>
+        <h3>To Do List</h3>
+    </div>
     <div class="list-group">
+        <!-- class için if ve ngFor kullanım örneği -->
         <a [class]="_task.completed == true ? 'list-group-item list-group-item-success' : 'list-group-item list-group-item-warning'" *ngFor="let _task of _taskList" (click)="updateCompleteStatus(_task)">
             {{_task.taskName}} &nbsp;&nbsp;&nbsp;
             <span *ngIf="_task.completed == true">(Completed)</span>
@@ -10,7 +15,7 @@
             </button>
         </a>
     </div>
-
+    <br>
     <div class="list-group">
         <a class="list-group-item"><input type="text" class="form-control" [(ngModel)]="_task.taskName" (keydown.enter)="addTask(_task)"></a>
         <a class="list-group-item"><button class="btn btn-success" (click)="addTask(_task)">Add New Task</button></a>

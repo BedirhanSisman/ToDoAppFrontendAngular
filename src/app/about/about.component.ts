@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
 import { Router } from '@angular/router';
 
 @Component({
@@ -9,13 +8,13 @@ import { Router } from '@angular/router';
 })
 export class AboutComponent implements OnInit {
 
-  constructor(private route: ActivatedRoute, private router: Router) { 
-    this.route.params.subscribe(res => console.log(res.id));
+  constructor( private router: Router) { 
   }
 
   ngOnInit() {
   }
-
+ 
+  // router ana sayfaya navigate ediyor.
   sendMeHome() {
     this.router.navigate(['']);
   }

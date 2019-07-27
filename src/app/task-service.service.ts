@@ -4,6 +4,8 @@ import { Observable, throwError } from 'rxjs';
 import { catchError } from 'rxjs/operators';
 import { Task } from './Models/Task';
 
+// service katmanı spring boot rest servisleri ile haberleşmeyi sağlıyor, 
+// bu class hangi TypeScript sınıfına enjekte edilirse orada kullnılabilecek şekilde encapsule ediliyor.
 @Injectable({
   providedIn: 'root'
 })
