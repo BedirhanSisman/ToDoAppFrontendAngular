@@ -1,0 +1,18 @@
+<div class="container">
+    <h1>To Do Application</h1>
+    <div class="list-group">
+        <a [class]="_task.completed == true ? 'list-group-item list-group-item-success' : 'list-group-item list-group-item-warning'" *ngFor="let _task of _taskList" (click)="updateCompleteStatus(_task)">
+            {{_task.taskName}} &nbsp;&nbsp;&nbsp;
+            <span *ngIf="_task.completed == true">(Completed)</span>
+            <span *ngIf="_task.completed == false">(Still Going On)</span>
+            <button class="btn btn-danger" (click)="deleteTask(_task)" style="float: right">
+                Delete
+            </button>
+        </a>
+    </div>
+
+    <div class="list-group">
+        <a class="list-group-item"><input type="text" class="form-control" [(ngModel)]="_task.taskName" (keydown.enter)="addTask(_task)"></a>
+        <a class="list-group-item"><button class="btn btn-success" (click)="addTask(_task)">Add New Task</button></a>
+    </div>
+</div>
