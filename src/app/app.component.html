@@ -1,12 +1,5 @@
-<div class="container">
-    <nav class="navbar navbar-expand-sm navbar-light bg-light">
-        <div class="navbar-nav">
-            <a class="nav-item nav-link" routerLink="">Home</a> <!-- routerLink, router ile componentler arasında geçiş yapmak için kullanılır -->
-            <a class="nav-item nav-link" routerLink="about">About</a>
-        </div>
-    </nav>
-</div>
+<app-header></app-header>
 
-<br>
+<router-outlet></router-outlet>
 
-<router-outlet></router-outlet> <!-- router ile doldurulacağı belirtilmiş, componentler ve URL yönlendirmeleri app-routing.module.ts class'ında -->
+<app-footer></app-footer>

@@ -7,13 +7,21 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { AboutComponent } from './about/about.component';
 import { TodoAppComponent } from './todo-app/todo-app.component'; //form işlemleri için ekledim
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { LoginComponent } from './login/login.component';
+import { LogoutComponent } from './logout/logout.component';
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     AboutComponent,
-    TodoAppComponent
+    TodoAppComponent,
+    LoginComponent,
+    LogoutComponent,
+    FooterComponent,
+    HeaderComponent
   ],
 
   imports: [
@@ -24,7 +32,10 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule //form işlemleri için ekledim
   ],
 
-  providers: [HttpClientModule],
+  providers: [
+    HttpClientModule
+  ],
+
   bootstrap: [AppComponent]
 })
 export class AppModule { }

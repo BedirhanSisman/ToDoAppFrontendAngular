@@ -7,9 +7,9 @@
     <div class="list-group">
         <!-- class için if ve ngFor kullanım örneği -->
         <a [class]="_task.completed == true ? 'list-group-item list-group-item-success' : 'list-group-item list-group-item-warning'" *ngFor="let _task of _taskList" (click)="updateCompleteStatus(_task)">
-            {{_task.taskName}} &nbsp;&nbsp;&nbsp;
-            <span *ngIf="_task.completed == true">(Completed)</span>
-            <span *ngIf="_task.completed == false">(Still Going On)</span>
+            {{_task.taskName}}
+            <span *ngIf="_task.completed == true"><br>(Completed)</span>
+            <span *ngIf="_task.completed == false"><br>(Still Going On)</span>
             <button class="btn btn-danger" (click)="deleteTask(_task)" style="float: right">
                 Delete
             </button>

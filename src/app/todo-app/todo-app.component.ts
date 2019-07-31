@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Task } from '../Models/Task';
-import { TaskServiceService } from '../task-service.service';
+import { Task } from '../model/Task';
+import { TaskServiceService } from '../service/task-service.service';
 
 @Component({
   selector: 'app-todo-app',

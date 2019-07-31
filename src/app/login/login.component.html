@@ -1,0 +1,11 @@
+<div class="container text-center">
+    <div>
+      User Name :&nbsp;<input type="text" name="username" [(ngModel)]="username" (keydown.enter)="checkLogin()">
+      <br><br>
+      Password :&nbsp;&nbsp;<input type="password" name="password" [(ngModel)]="password" (keydown.enter)="checkLogin()">
+    </div>
+    <br>
+    <button (click)="checkLogin()" class="btn btn-success">
+      Login
+    </button>
+</div>
