@@ -1,0 +1,36 @@
+<div class="container text-center">
+    <h3>User List</h3>
+    <br>
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">ID</th>
+          <th scope="col">Username</th>
+          <th scope="col">Password</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody *ngFor="let user of _userList">
+        <tr>
+          <td>{{ user.id }}</td>
+          <td>{{ user.username }}</td>
+          <td>{{ user.password }}</td>
+          <td><button class="btn btn-danger" (click)="deleteUser(user)"> Delete </button></td>
+        </tr>
+      </tbody>
+    </table>
+    <br>
+    <h3>Add New User</h3>
+    <form class="text-center border border-light p-5">
+      <div class="form-group">
+        <label>Yeni Kullanıcı Adı : </label>
+        <input type="email" class="form-control mb-4" placeholder="Username" [(ngModel)]="_user.username" [ngModelOptions]="{standalone: true}">
+      </div>
+      <div class="form-group">
+        <label>Yeni Şifre : </label>
+        <input type="password" class="form-control mb-4" placeholder="Password" [(ngModel)]="_user.password" (keydown.enter)="addUser(_user)" [ngModelOptions]="{standalone: true}">
+      </div>
+      <button type="submit" class="btn btn-primary" (click)="addUser(_user)">Add New User</button>
+    </form>
+</div>
+

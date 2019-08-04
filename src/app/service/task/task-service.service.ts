@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable} from 'rxjs';
-import { Task } from '../model/Task';
+import { Task } from '../../model/Task';
 
 // service katmanı spring boot rest servisleri ile haberleşmeyi sağlıyor, 
 // bu class hangi TypeScript sınıfına enjekte edilirse orada kullnılabilecek şekilde encapsule ediliyor.
@@ -24,7 +24,7 @@ export class TaskServiceService {
 
   public saveTask(task: Task) {
     const headers = new HttpHeaders({ 'Content-Type': 'application/json', 'Authorization': sessionStorage.getItem('authorizationToken') });
-    return this.http.post<Task>(this.baseURL, task, {headers});
+    return this.http.post(this.baseURL, task, {headers});
   }
 
   public deleteTask(taskName: string): Observable<{}> {   

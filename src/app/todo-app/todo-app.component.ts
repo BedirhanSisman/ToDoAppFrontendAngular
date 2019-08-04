@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Task } from '../model/Task';
-import { TaskServiceService } from '../service/task-service.service';
+import { TaskServiceService } from '../service/task/task-service.service';
 
 @Component({
   selector: 'app-todo-app',
@@ -21,7 +21,7 @@ export class TodoAppComponent implements OnInit {
 
   // gerisi zaten bildiğimiz şeyler..
   addTask(todo: Task){
-    if (this._task.taskName != "" && this.isNotThereAnyItemLikeWantsToAddOnItemList(todo)) {
+    if (this._task.taskName.trim() != "" && this.isNotThereAnyItemLikeWantsToAddOnItemList(todo)) {
       this._taskList.push({ 'completed': this._task.completed, 'taskName': this._task.taskName});
       this.taskService.saveTask(todo).subscribe();
       this._task.taskName = '';

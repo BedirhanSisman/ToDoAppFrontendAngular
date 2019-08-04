@@ -4,7 +4,8 @@ import { AboutComponent } from './about/about.component';
 import { TodoAppComponent } from './todo-app/todo-app.component';
 import { LoginComponent } from './login/login.component';
 import { LogoutComponent } from './logout/logout.component';
-import { AuthGaurdService } from './service/auth-gaurd.service';
+import { AuthGaurdService } from './service/authentication/auth-gaurd.service';
+import { UserComponent } from './user/user.component';
 
 // pathler ve referans componentleri belirtiliyor. Bu componentler içinde ki html dosyalar gösterilecek..
 const routes: Routes = [
@@ -26,6 +27,11 @@ const routes: Routes = [
   {
     path: 'login',
     component: LoginComponent
+  },
+  {
+    path: 'users',
+    component: UserComponent,
+    canActivate:[AuthGaurdService] // Bu satır login değilse "/login" sayfasına yönlendirmek için..
   }
 ];
 

@@ -1,8 +1,10 @@
 <div class="container">
+    <div *ngIf="loginService.isUserLoggedIn()" class="right" >Welcome {{ getCurrentUserName() | uppercase }}!</div>
     <nav class="navbar navbar-expand-sm navbar-light bg-light">
         <div class="navbar-nav">
             <a *ngIf="loginService.isUserLoggedIn()" class="nav-item nav-link" routerLink="">Home</a> <!-- routerLink, router ile componentler arasında geçiş yapmak için kullanılır -->
             <a *ngIf="loginService.isUserLoggedIn()" class="nav-item nav-link" routerLink="about">About</a>
+            <a *ngIf="loginService.isUserAdmin()" class="nav-item nav-link" routerLink="users">Users</a>
             <a *ngIf="!loginService.isUserLoggedIn()" class="nav-item nav-link" routerLink="login">Log In</a>
             <a *ngIf="loginService.isUserLoggedIn()" class="nav-item nav-link" routerLink="logout">Log Out</a>
         </div>

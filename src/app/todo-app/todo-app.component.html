@@ -16,6 +16,7 @@
         </a>
     </div>
     <br>
+    <h3>Add New Task</h3>
     <div class="list-group">
         <a class="list-group-item"><input type="text" class="form-control" [(ngModel)]="_task.taskName" (keydown.enter)="addTask(_task)"></a>
         <a class="list-group-item"><button class="btn btn-success" (click)="addTask(_task)">Add New Task</button></a>
