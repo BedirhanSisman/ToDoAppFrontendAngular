@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { User } from '../model/User';
 import { UserService } from '../service/user/user.service';
+import { UserRole } from '../model/UserRole';
+import { AuthenticationService } from '../service/authentication/authentication.service';
 
 @Component({
   selector: 'app-user',
@@ -13,10 +15,13 @@ export class UserComponent implements OnInit {
   
   _userList: User[];
 
-  constructor(private userService: UserService) { }
+  constructor(private userService: UserService, private loginService: AuthenticationService) { }
 
   ngOnInit() {
-    this.userService.findAll().subscribe(data => {this._userList = data}); 
+    this.userService.findAll().subscribe(data => {
+      this._userList = data;
+      this.getAllRolesInToSessionStorage();
+    }); 
   }
 
   addUser(user: User) {
@@ -37,7 +42,7 @@ export class UserComponent implements OnInit {
 
   deleteUser(user: User){
     let index = this._userList.indexOf(user);
-      if(this.warnForDeleteUser(user.username)){
+      if(this.warnForDeleteUser(user.username)) {
         this._userList.splice(index, 1);
         this.userService.deleteUser(user.username).subscribe();
       }
@@ -75,9 +80,29 @@ export class UserComponent implements OnInit {
     }
   }
 
-  cleanUserFields(){
+  cleanUserFields() {
     this._user.username = '';
     this._user.password = '';
+  }
+
+  getUserRoleByUsername(username: string) {
+    return sessionStorage.getItem('role' + username);
+  }
+
+  getAllRolesInToSessionStorage() {
+    for (let index = 0; index < this._userList.length; index++) {
+      const user = this._userList[index];
+      
+      let role: UserRole;
+
+      this.userService.findUserRoleByUsername(user.username).subscribe(
+        data => {
+          role = data;
+          sessionStorage.setItem('role' + user.username, role.authority);
+        }
+      );
+
+    }
   }
 
 }
