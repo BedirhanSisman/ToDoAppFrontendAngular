@@ -1,32 +1,37 @@
-<nav class="navbar navbar-expand-md navbar-light bg-light">
-    <div class="container">
+<div class="container">
+    <nav class="navbar navbar-expand-md navbar-light bg-light">
         <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#myNavbar" aria-controls="myNavbar" aria-expanded="false">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div id="myNavbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav mr-auto">
+                &nbsp;
                 <li class="nav-item">
-                    <a class="btn btn-info btn-lg nav-link" *ngIf="loginService.isUserLoggedIn()" routerLink="">Home</a> <!-- routerLink, router ile componentler arasında geçiş yapmak için kullanılır -->
-                </li>&nbsp;
+                    <a class="btn btn-info nav-link" *ngIf="loginService.isUserLoggedIn()" routerLink="">Home</a> <!-- routerLink, router ile componentler arasında geçiş yapmak için kullanılır -->
+                </li>
+                &nbsp;
                 <li class="nav-item">
-                    <a class="btn btn-info btn-lg nav-link" *ngIf="loginService.isUserLoggedIn()" routerLink="about">About</a>
-                </li>&nbsp;
+                    <a class="btn btn-info nav-link" *ngIf="loginService.isUserLoggedIn()" routerLink="about">About</a>
+                </li>
+                &nbsp;
                 <li class="nav-item">
-                    <a class="btn btn-info btn-lg nav-link" *ngIf="loginService.isUserAdmin()" routerLink="users">Users</a>
-                </li>&nbsp;
+                    <a class="btn btn-info nav-link" *ngIf="loginService.isUserAdmin()" routerLink="users">Users</a>
+                </li>
+                &nbsp;
                 <li class="nav-item">
-                    <a class="btn btn-success btn-lg nav-link" *ngIf="!loginService.isUserLoggedIn()" routerLink="login">Log In</a>
-                </li>&nbsp;
+                    <a class="btn btn-success nav-link" *ngIf="!loginService.isUserLoggedIn()" routerLink="login">Log In</a>
+                </li>
+                &nbsp;
                 <li class="nav-item">
-                    <a class="btn btn-danger btn-lg nav-link" *ngIf="loginService.isUserLoggedIn()" routerLink="logout"><span class="glyphicon glyphicon-log-out"></span> Log Out</a>
-                </li>&nbsp;
+                    <a class="btn btn-danger nav-link" *ngIf="loginService.isUserLoggedIn()" routerLink="logout">Log Out</a>
+                </li>
             </ul>
             <span class="navbar-text" *ngIf="loginService.isUserLoggedIn()" >
                 Welcome {{ getCurrentUserName() | uppercase }}!
             </span>
         </div>
-    </div>
-</nav>
+    </nav>
+</div>
 
 <br>
 
